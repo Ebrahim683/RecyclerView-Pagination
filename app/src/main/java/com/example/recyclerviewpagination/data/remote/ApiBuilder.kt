@@ -6,7 +6,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class ApiBuilder {
 
-	var baseUrl = "https://picsum.photos"
+	var baseUrl = "https://api.thedogapi.com"
 
 	fun getRetrofit(): Retrofit {
 		return Retrofit.Builder()
