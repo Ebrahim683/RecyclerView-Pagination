@@ -33,11 +33,12 @@ class MainActivity : AppCompatActivity() {
 
 		setView()
 		runBlocking {
-			mainViewModel.data.observe(this@MainActivity, Observer {
-				Log.d(TAG, "onCreate: $it")
-				mAdapter.submitData(lifecycle, it)
+			mainViewModel.data.observe(this@MainActivity, Observer { response ->
+				Log.d(TAG, "onCreate: $response")
+				mAdapter.submitData(lifecycle, response)
 			})
 		}
+
 	}
 
 	private fun setView() {

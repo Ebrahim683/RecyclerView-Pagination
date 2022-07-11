@@ -5,5 +5,7 @@ import com.example.recyclerviewpagination.data.repository.Repository
 
 class MainViewModel(private val repository: Repository) :
 	ViewModel() {
+
 	val data = repository.getData()
+
 }

@@ -22,6 +22,9 @@ class DataPagingSource(private val apiBuilder: ApiBuilder) : PagingSource<Int, M
 	}
 
 	override fun getRefreshKey(state: PagingState<Int, ModelDataItem>): Int? {
-		return null
+		return state.anchorPosition?.let {
+			state.closestPageToPosition(it)?.prevKey?.plus(1)
+				?: state.closestPageToPosition(it)?.nextKey?.minus(1)
+		}
 	}
 }
